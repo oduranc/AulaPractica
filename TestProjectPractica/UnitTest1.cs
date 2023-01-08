@@ -4,6 +4,7 @@ namespace TestProjectPractica
 {
     public class UnitTest1
     {
+        // Arrange
         [Theory]
         [InlineData(69.5)]
         [InlineData(70)]
@@ -11,6 +12,7 @@ namespace TestProjectPractica
         [InlineData(95)]
         public void Pasar_True(float nota)
         {
+            // Assert
             Assert.True(Estudiante.Pasar(nota));
         }
 
