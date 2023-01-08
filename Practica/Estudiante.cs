@@ -16,9 +16,9 @@ namespace Practica
         public Estudiante(string carrera)
         {
             this.carrera = carrera;
-            this.calificaciones = new List<string>();
-            this.cursando = new List<string>();
-            this.creditosActuales = 0;
+            calificaciones = new List<string>();
+            cursando = new List<string>();
+            creditosActuales = 0;
         }
 
         public List<string> Inscribir(string asignatura)
