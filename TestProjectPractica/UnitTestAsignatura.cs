@@ -66,11 +66,10 @@ namespace TestProjectPractica
             Asignatura asignatura = new Asignatura();
             string estudiante1 = "Pedro";
             string estudiante2 = "Luis";
-            asignatura.estudiantes.Add(estudiante1);
-            asignatura.estudiantes.Add(estudiante2);
 
             // Act
-            asignatura.Cantidad_De_Estudiantes_Necesarios(asignatura.estudiantes);
+            asignatura.estudiantes.Add(estudiante1);
+            asignatura.estudiantes.Add(estudiante2);
 
             // Assert
             Assert.Throws<Exception>(() => asignatura.Cantidad_De_Estudiantes_Necesarios(asignatura.estudiantes));
