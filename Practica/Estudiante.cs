@@ -8,24 +8,25 @@ namespace Practica
 {
     public class Estudiante
     {
-        public string carrera { get; set; }
+        public string nombre { get; set; }
         public List<string> calificaciones { get; set; }
         public List<string> cursando { get; set; }
         public int creditosActuales { get; set; }
 
-        public Estudiante(string carrera)
+        public Estudiante(string nombre)
         {
-            this.carrera = carrera;
+            this.nombre = nombre;
             calificaciones = new List<string>();
             cursando = new List<string>();
             creditosActuales = 0;
         }
 
-        public List<string> Inscribir(string asignatura)
+        public List<string> Inscribir(Asignatura asignatura)
         {
-            if (!cursando.Contains(asignatura))
+            string materia = asignatura.nombre.ToString();
+            if (!cursando.Contains(materia))
             {
-                cursando.Add(asignatura);
+                cursando.Add(materia);
                 return cursando;
             }
             else
@@ -34,16 +35,20 @@ namespace Practica
             }
         }
 
-        public List<string> Retirar(string asignatura)
+        public List<string> Retirar(Asignatura asignatura)
         {
-            var itemToRemove = cursando.Single(r => r.Equals(asignatura));
+            string materia = asignatura.nombre.ToString();
+            var itemToRemove = cursando.Single(r => r.Equals(materia));
             cursando.Remove(itemToRemove);
             return cursando;
         }
 
-        public static bool Pasar(float calificacion)
+        public static bool Pasar(Calificacion calificacion)
         {
-            if (calificacion > 69)
+            string calificaciones = calificacion.nota.ToString();
+     
+           
+            if (float.Parse(calificaciones) > 69)
             {
                 return true;
             }

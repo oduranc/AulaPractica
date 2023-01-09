@@ -9,17 +9,25 @@ namespace Practica
     public class Profesor
     {
         public List<string> impartiendo { get; set; }
+        public string nombreDocente { get; set; }
 
-        public Profesor()
+        public Profesor(string nombreDocente)
         {
+            this.nombreDocente = nombreDocente;
             impartiendo = new List<string>();
         }
+        
+        
 
-        public List<string> Inscribir(string asignatura)
+
+
+        public List<string> Inscribir(Asignatura asignatura)
         {
-            if (!impartiendo.Contains(asignatura))
+    
+           string materia = asignatura.nombre.ToString();
+            if (!impartiendo.Contains(materia))
             {
-                impartiendo.Add(asignatura);
+                impartiendo.Add(materia);
                 return impartiendo;
             }
             else

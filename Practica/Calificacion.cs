@@ -8,9 +8,16 @@ namespace Practica
 {
     public class Calificacion
     {
-        public static bool MargenDeNotas(float calificacion)
+        public float nota { get; set; }
+
+       public Calificacion(float nota)
         {
-            if (calificacion < 0 || calificacion > 100)
+            this.nota = nota;
+        }
+
+        public static bool MargenDeNotas(float nota)
+        {
+            if (nota < 0 || nota > 100)
             {
                 return false;
             }

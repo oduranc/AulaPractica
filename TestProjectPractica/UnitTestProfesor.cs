@@ -8,9 +8,10 @@ namespace TestProjectPractica
         public void Impartir_Una_Materia_Dos_Veces()
         {
             // Arrange
-            Profesor profesor = new Profesor();
-            string materia1 = "Construcción de Software";
-            string materia2 = "Laboratorio Construcción de Software";
+            Profesor profesor = new Profesor("Luis Duarte");
+            Asignatura materia1 = new Asignatura("Construcción de Software");
+            Asignatura materia2 = new Asignatura("Laboratorio Construcción de Software");
+            
             // Act
             profesor.Inscribir(materia1);
             profesor.Inscribir(materia2);
@@ -18,13 +19,16 @@ namespace TestProjectPractica
             Assert.Throws<Exception>(() => profesor.Inscribir(materia1));
         }
 
+      
+
         [Fact]
         public void Impartir_Solo_Una_Vez()
         {
             // Arrange
-            Profesor profesor = new Profesor();
-            string materia1 = "Construcción de Software";
-            string materia2 = "Laboratorio Construcción de Software";
+            Profesor profesor = new Profesor("Ana Tejeda");
+            Asignatura materia1 = new Asignatura("Construcción de Software");
+            Asignatura materia2 = new Asignatura("Laboratorio Construcción de Software");
+           
             // Act
             profesor.Inscribir(materia1);
             profesor.Inscribir(materia2);

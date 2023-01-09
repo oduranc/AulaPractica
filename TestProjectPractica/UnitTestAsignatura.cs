@@ -41,15 +41,16 @@ namespace TestProjectPractica
         public void Estudiantes_Cursando_Materia_Aceptable()
         {
             // Arrange
-            Asignatura asignatura = new Asignatura();
-            string estudiante1 = "Pedro";
-            string estudiante2 = "Luis";
-            string estudiante3 = "Ana";
-            string estudiante4 = "Juan";
-            asignatura.estudiantes.Add(estudiante1);
-            asignatura.estudiantes.Add(estudiante2);
-            asignatura.estudiantes.Add(estudiante3);
-            asignatura.estudiantes.Add(estudiante4);
+            Asignatura asignatura = new Asignatura("Lenguas");
+            Estudiante estudiante1 = new Estudiante("Luis Jimenez");
+            Estudiante estudiante2 = new Estudiante("Pedro Lopaz");
+            Estudiante estudiante3 = new Estudiante("Maria Almonte");
+            Estudiante estudiante4 = new Estudiante("Olif Mendez");
+     
+            asignatura.estudiantes.Add(estudiante1.nombre.ToString());
+            asignatura.estudiantes.Add(estudiante2.nombre.ToString());
+            asignatura.estudiantes.Add(estudiante3.nombre.ToString());
+            asignatura.estudiantes.Add(estudiante4.nombre.ToString());
 
             // Act
             asignatura.Cantidad_De_Estudiantes_Necesarios(asignatura.estudiantes);
@@ -63,13 +64,14 @@ namespace TestProjectPractica
         public void Estudiantes_Cursando_Materia_No_Aceptable()
         {
             // Arrange
-            Asignatura asignatura = new Asignatura();
-            string estudiante1 = "Pedro";
-            string estudiante2 = "Luis";
+            Asignatura asignatura = new Asignatura("Impacto Social");
+            Estudiante estudiante1 = new Estudiante("Marcos Pimentel");
+            Estudiante estudiante2 = new Estudiante("Sandra Rice");
+
 
             // Act
-            asignatura.estudiantes.Add(estudiante1);
-            asignatura.estudiantes.Add(estudiante2);
+            asignatura.estudiantes.Add(estudiante1.nombre.ToString());
+            asignatura.estudiantes.Add(estudiante2.nombre.ToString());
 
             // Assert
             Assert.Throws<Exception>(() => asignatura.Cantidad_De_Estudiantes_Necesarios(asignatura.estudiantes));
@@ -81,16 +83,19 @@ namespace TestProjectPractica
         public void Profesores_Impartiendo_Materia_Aceptable()
         {
             // Arrange
-            Asignatura asignatura = new Asignatura();
-            string profesor = "Pedro";
-            asignatura.profesores.Add(profesor);
+            Asignatura asignatura = new Asignatura("Historia");
+            Profesor profesor1 = new Profesor("Jose Ferreira");
+            Profesor profesor2 = new Profesor("Carla Montez");
+
+            asignatura.profesores.Add(profesor1.nombreDocente.ToString());
+            asignatura.profesores.Add(profesor2.nombreDocente.ToString());
 
             // Act
             asignatura.Cantidad_De_profesores(asignatura.profesores);
             int lenght = asignatura.profesores.Count();
       
             // Assert
-            Assert.Equal(1, lenght);
+            Assert.Equal(2, lenght);
         }
 
 
@@ -98,7 +103,7 @@ namespace TestProjectPractica
         public void Profesores_Impartiendo_Materia_No_Aceptable()
         {
             // Arrange
-            Asignatura asignatura = new Asignatura();
+            Asignatura asignatura = new Asignatura("Calculo");
   
 
             // Assert

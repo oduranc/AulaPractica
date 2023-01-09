@@ -13,9 +13,9 @@ namespace Practica
         public List<string> profesores { get; set; }
         public List<string> estudiantes { get; set; }
         public int creditos { get; set; }
-        public Asignatura()
+        public Asignatura(string nombre)
         {
-          
+            this.nombre = nombre;
             this.profesores = new List<string>();
             this.estudiantes = new List<string>();
             this.creditos = 0;

@@ -10,10 +10,11 @@ namespace TestProjectPractica
         [InlineData(70)]
         [InlineData(82)]
         [InlineData(95)]
-        public void Pasar_True(float nota)
+        public void Pasar_True(float calificacion)
         {
+            Calificacion calificaciones = new Calificacion(calificacion);
             // Act
-            bool pasar = Estudiante.Pasar(nota);
+            bool pasar = Estudiante.Pasar(calificaciones);
             // Assert
             Assert.True(pasar);
         }
@@ -24,10 +25,11 @@ namespace TestProjectPractica
         [InlineData(10)]
         [InlineData(50)]
         [InlineData(25)]
-        public void Pasar_False(float nota)
+        public void Pasar_False(float calificacion)
         {
+            Calificacion calificaciones= new Calificacion(calificacion);
             // Act
-            bool pasar = Estudiante.Pasar(nota);
+            bool pasar = Estudiante.Pasar(calificaciones);
             // Assert
             Assert.False(pasar);
         }
@@ -36,9 +38,9 @@ namespace TestProjectPractica
         public void Inscribir_Una_Materia_Dos_Veces()
         {
             // Arrange
-            Estudiante estudiante = new Estudiante("Ingeniería de Software");
-            string materia1 = "Construcción de Software";
-            string materia2 = "Laboratorio Construcción de Software";
+            Estudiante estudiante = new Estudiante("Pablo Cespedes");
+            Asignatura materia1 = new Asignatura("Construcción de Software");
+            Asignatura materia2 = new Asignatura("Laboratorio Construcción de Software");
             // Act
             estudiante.Inscribir(materia1);
             estudiante.Inscribir(materia2);
@@ -50,9 +52,9 @@ namespace TestProjectPractica
         public void Inscribir_Solo_Una_Vez()
         {
             // Arrange
-            Estudiante estudiante = new Estudiante("Ingeniería de Software");
-            string materia1 = "Desarrollo de Software III";
-            string materia2 = "Laboratorio Desarrollo de Software III";
+            Estudiante estudiante = new Estudiante("Luisa Perez");
+            Asignatura materia1 = new Asignatura("Desarrollo de Software III");
+            Asignatura materia2 = new Asignatura("Laboratorio Desarrollo de Software III");
             // Act
             estudiante.Inscribir(materia1);
             estudiante.Inscribir(materia2);
